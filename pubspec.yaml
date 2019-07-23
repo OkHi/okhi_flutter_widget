@@ -1,0 +1,13 @@
+name: okhi_flutter_widget
+description: The OkHi Flutter Widget provides you with a quick and easy way to start collecting high accuracy location information from your users.
+version: 1.0.0
+homepage: https://github.com/okhi/okhi_flutter_widget
+author: Julius Kiano <kiano@okhi.co>
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+  
+dependencies:
+  webview_flutter: ^0.3.10+3
+  flutter:
+    sdk: flutter
