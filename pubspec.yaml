@@ -9,5 +9,6 @@ environment:
   
 dependencies:
   webview_flutter: ^0.3.10+3
+  meta: ^1.1.6
   flutter:
     sdk: flutter
