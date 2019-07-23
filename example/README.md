@@ -1,16 +1,42 @@
-# example
+```dart
+import 'package:flutter/material.dart';
+import 'package:okhi_flutter_widget/okhi_flutter_widget.dart';
 
-A new Flutter project.
+class MyScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
 
-## Getting Started
+    // make sure to have an apiKey before hand
+    OkHiAuth auth = OkHiAuth(
+      apiKey: "<< my-okhi-api-key >>"
+    );
 
-This project is a starting point for a Flutter application.
+    // only phone is required
+    OkHiUser user = OkHiUser(
+      phone: "+254712xxxxxx", 
+      firstName: "John",
+      lastName: "Doe"
+    );
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    return Scaffold(
+      // add the below line to avoid keyboard padding issues
+      resizeToAvoidBottomPadding: false,
+      appBar: AppBar(
+        title: Text('My App Bar'),
+      ),
+      body: OkHi(
+        auth: auth,
+        user: user,
+        onSucess: (OkHiLocation location, OkHiUser user) {
+          // handle success
+        },
+        onError: (error) {
+          // handle errors
+          print(error.message);
+        },
+        mode: OkHiLaunchMode.start_app,
+      ),
+    );
+  }
+}
+```
